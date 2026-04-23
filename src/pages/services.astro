@@ -1,0 +1,506 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    icon: '🏠',
+    title: 'Residential Junk Removal',
+    desc: 'Your home deserves to breathe. We haul away clutter, unwanted furniture, old electronics, and anything else taking up space — fast and affordable.',
+    items: ['Old furniture & mattresses', 'Appliances & electronics', 'Garage & basement cleanouts', 'Attic clearing', 'General household junk'],
+  },
+  {
+    icon: '🏢',
+    title: 'Commercial Cleanouts',
+    desc: 'Minimize downtime. We work around your schedule to clear out offices, retail spaces, and warehouses efficiently.',
+    items: ['Office furniture & equipment', 'Retail fixture removal', 'Warehouse cleanouts', 'Storage unit clearing', 'Business downsizing'],
+  },
+  {
+    icon: '🛋️',
+    title: 'Furniture & Appliance Removal',
+    desc: 'No stairs too steep, no appliance too heavy. We carry it all out so you don't have to.',
+    items: ['Sofas, sectionals, recliners', 'Beds & bed frames', 'Refrigerators & freezers', 'Washing machines & dryers', 'Hot tubs & exercise equipment'],
+  },
+  {
+    icon: '🌿',
+    title: 'Yard Waste Removal',
+    desc: 'After the storm or after the season — we clear branches, stumps, leaves, and all outdoor debris.',
+    items: ['Storm debris & fallen branches', 'Leaf & brush removal', 'Stump & root hauling', 'Old fencing & lumber', 'Soil & mulch disposal'],
+  },
+  {
+    icon: '🏗️',
+    title: 'Construction Debris',
+    desc: 'Remodeling? We handle the mess. All construction waste removed quickly and responsibly.',
+    items: ['Drywall & lumber', 'Tile & flooring', 'Concrete & masonry', 'Roofing materials', 'Demolition debris'],
+  },
+  {
+    icon: '🏡',
+    title: 'Estate Cleanouts',
+    desc: 'A compassionate, thorough approach to estate and hoarding cleanouts. We treat every job with discretion and respect.',
+    items: ['Full estate clearing', 'Hoarding cleanouts', 'Senior moving assistance', 'Donation coordination', 'Property preparation for sale'],
+  },
+];
+---
+
+<Layout title="Services" description="J&N Junk Removal offers residential, commercial, furniture, yard waste, construction debris, and estate cleanout services across Long Island, NY.">
+
+  <!-- PAGE HEADER -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container page-hero-content">
+      <p class="section-label">What We Offer</p>
+      <h1 class="section-title light">OUR SERVICES</h1>
+      <p class="page-hero-sub">From single-item pickups to full property cleanouts — J&N handles it all across Long Island.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES LIST -->
+  <section class="services-section">
+    <div class="container">
+      {services.map((s, i) => (
+        <div class={`service-row ${i % 2 !== 0 ? 'reverse' : ''}`}>
+          <div class="service-visual">
+            <div class="service-icon-big">{s.icon}</div>
+            <div class="service-num">0{i + 1}</div>
+          </div>
+          <div class="service-detail">
+            <h2 class="service-name">{s.title}</h2>
+            <div class="service-divider"></div>
+            <p class="service-description">{s.desc}</p>
+            <ul class="service-items">
+              {s.items.map(item => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            <a href="/contact#schedule" class="btn btn-primary">Book This Service</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- VIDEO CAROUSEL SECTION -->
+  <section class="video-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">See Our Work</p>
+        <h2 class="section-title light">JOBS WE'VE DONE</h2>
+        <p class="video-section-sub">Real jobs, real results. Check out some of our recent cleanouts across Long Island.</p>
+      </div>
+
+      <!-- CAROUSEL -->
+      <div class="carousel-wrapper">
+        <button class="carousel-btn prev" id="prevBtn" aria-label="Previous">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+
+        <div class="carousel-viewport" id="carouselViewport">
+          <div class="carousel-track" id="carouselTrack">
+
+            <!-- VIDEO SLIDES — Replace src with actual YouTube embeds or video files -->
+            {[
+              { title: 'Full Garage Cleanout', location: 'Valley Stream, NY', placeholder: '🏚️ Garage Cleanout Video' },
+              { title: 'Estate Cleanout', location: 'Hempstead, NY', placeholder: '🏠 Estate Cleanout Video' },
+              { title: 'Furniture Removal', location: 'Garden City, NY', placeholder: '🛋️ Furniture Removal Video' },
+              { title: 'Construction Debris', location: 'Freeport, NY', placeholder: '🏗️ Construction Debris Video' },
+              { title: 'Basement Cleanout', location: 'Rockville Centre, NY', placeholder: '📦 Basement Cleanout Video' },
+              { title: 'Yard Waste Removal', location: 'Lynbrook, NY', placeholder: '🌿 Yard Waste Removal Video' },
+            ].map(v => (
+              <div class="carousel-slide">
+                <div class="video-card">
+                  <!-- PLACEHOLDER: Replace this div with an <iframe> or <video> tag -->
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-inner">
+                      <div class="play-btn-fake">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                      </div>
+                      <p class="placeholder-label">{v.placeholder}</p>
+                      <p class="placeholder-hint">Replace with video embed</p>
+                    </div>
+                    <!-- 
+                      TO ADD A YOUTUBE VIDEO, replace the div above with:
+                      <iframe 
+                        src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                        title="{v.title}"
+                        frameborder="0" 
+                        allowfullscreen
+                        style="width:100%;height:100%;">
+                      </iframe>
+                    -->
+                  </div>
+                  <div class="video-info">
+                    <h3 class="video-title">{v.title}</h3>
+                    <span class="video-location">📍 {v.location}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+
+          </div>
+        </div>
+
+        <button class="carousel-btn next" id="nextBtn" aria-label="Next">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container cta-inner">
+      <div>
+        <h2 class="cta-title">NEED SOMETHING REMOVED?</h2>
+        <p class="cta-sub">Call us or schedule online — we're ready when you are.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="tel:5166725222" class="btn btn-primary">📞 (516) 672-5222</a>
+        <a href="/contact#schedule" class="btn btn-outline">Book Online</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  // CAROUSEL LOGIC
+  const track = document.getElementById('carouselTrack') as HTMLElement;
+  const prevBtn = document.getElementById('prevBtn') as HTMLButtonElement;
+  const nextBtn = document.getElementById('nextBtn') as HTMLButtonElement;
+  const dotsContainer = document.getElementById('carouselDots') as HTMLElement;
+
+  let current = 0;
+  const slides = track?.querySelectorAll('.carousel-slide') ?? [];
+  const total = slides.length;
+  let visibleCount = window.innerWidth >= 960 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+
+  // Create dots
+  const maxSlide = total - visibleCount;
+  for (let i = 0; i <= maxSlide; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  }
+
+  function goTo(index: number) {
+    const max = total - visibleCount;
+    current = Math.max(0, Math.min(index, max));
+    const slideWidth = (track?.parentElement?.clientWidth ?? 0) / visibleCount;
+    track.style.transform = `translateX(-${current * slideWidth}px)`;
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  prevBtn?.addEventListener('click', () => goTo(current - 1));
+  nextBtn?.addEventListener('click', () => goTo(current + 1));
+
+  window.addEventListener('resize', () => {
+    visibleCount = window.innerWidth >= 960 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+    goTo(current);
+  });
+</script>
+
+<style>
+  /* PAGE HERO */
+  .page-hero {
+    background: var(--black);
+    padding: 80px 0 72px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 100% at 100% 50%, rgba(211,47,47,0.1) 0%, transparent 70%);
+  }
+
+  .page-hero-content { position: relative; z-index: 1; }
+
+  .page-hero-sub {
+    color: #888;
+    font-size: 1rem;
+    margin-top: 16px;
+    max-width: 500px;
+  }
+
+  /* SERVICES LIST */
+  .services-section { padding: 80px 0; }
+
+  .service-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 60px;
+    align-items: start;
+    padding: 56px 0;
+    border-bottom: 1px solid var(--gray-mid);
+  }
+
+  .service-row:last-child { border-bottom: none; }
+
+  .service-row.reverse {
+    direction: rtl;
+  }
+  .service-row.reverse > * { direction: ltr; }
+
+  .service-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 32px 16px;
+    background: var(--gray-light);
+    position: relative;
+    min-height: 160px;
+  }
+
+  .service-icon-big { font-size: 3.5rem; margin-bottom: 8px; }
+
+  .service-num {
+    position: absolute;
+    top: 10px; right: 14px;
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--red);
+    opacity: 0.2;
+    line-height: 1;
+  }
+
+  .service-name {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    letter-spacing: 1px;
+    color: var(--black);
+    margin-bottom: 14px;
+    line-height: 1.1;
+  }
+
+  .service-divider {
+    width: 48px;
+    height: 3px;
+    background: var(--red);
+    margin-bottom: 18px;
+  }
+
+  .service-description {
+    font-size: 1rem;
+    color: var(--gray-text);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .service-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+    margin-bottom: 28px;
+  }
+
+  .service-items li {
+    font-size: 0.9rem;
+    color: var(--black);
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .service-items li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-weight: 700;
+  }
+
+  /* VIDEO SECTION */
+  .video-section {
+    background: var(--black);
+    padding: 100px 0;
+  }
+
+  .video-section-sub {
+    color: #888;
+    font-size: 1rem;
+    margin-top: 12px;
+  }
+
+  .section-header { margin-bottom: 48px; }
+
+  .carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+  }
+
+  .carousel-viewport {
+    overflow: hidden;
+    flex: 1;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.4s ease;
+  }
+
+  .carousel-slide {
+    flex: 0 0 calc(100% / 3);
+    padding: 0 8px;
+  }
+
+  .video-card {
+    background: var(--black-2);
+    border: 1px solid var(--black-3);
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+
+  .video-card:hover { transform: translateY(-4px); }
+
+  .video-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--black-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .video-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(255,255,255,0.01) 20px,
+      rgba(255,255,255,0.01) 21px
+    );
+  }
+
+  .video-placeholder-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 1;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .play-btn-fake {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    transition: transform 0.2s, background 0.2s;
+  }
+
+  .video-placeholder:hover .play-btn-fake {
+    transform: scale(1.1);
+    background: var(--red-dark);
+  }
+
+  .placeholder-label {
+    font-family: var(--font-condensed);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--gray-mid);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .placeholder-hint {
+    font-size: 0.7rem;
+    color: #555;
+    font-style: italic;
+  }
+
+  .video-info {
+    padding: 16px 20px;
+  }
+
+  .video-title {
+    font-family: var(--font-condensed);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .video-location {
+    font-size: 0.8rem;
+    color: #666;
+  }
+
+  .carousel-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: var(--red);
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .carousel-btn:hover { background: var(--red-dark); }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 28px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--black-3);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .dot.active {
+    background: var(--red);
+    transform: scale(1.3);
+  }
+
+  /* CTA */
+  .cta-banner { background: var(--red); padding: 72px 0; }
+  .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .cta-title { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--white); line-height: 1.1; margin-bottom: 8px; }
+  .cta-sub { color: rgba(255,255,255,0.8); font-size: 1rem; }
+  .cta-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    .carousel-slide { flex: 0 0 50%; }
+    .service-row, .service-row.reverse { grid-template-columns: 1fr; direction: ltr; gap: 24px; }
+    .service-visual { flex-direction: row; min-height: auto; padding: 20px 24px; gap: 12px; }
+    .cta-inner { flex-direction: column; text-align: center; }
+  }
+
+  @media (max-width: 640px) {
+    .carousel-slide { flex: 0 0 100%; }
+    .service-items { grid-template-columns: 1fr; }
+  }
+</style>
