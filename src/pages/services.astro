@@ -3,37 +3,37 @@ import Layout from '../layouts/Layout.astro';
 
 const services = [
   {
-    icon: '🏠',
+    img: '/images/hero-bg.jpg',
     title: 'Residential Junk Removal',
     desc: 'Your home deserves to breathe. We haul away clutter, unwanted furniture, old electronics, and anything else taking up space — fast and affordable.',
     items: ['Old furniture & mattresses', 'Appliances & electronics', 'Garage & basement cleanouts', 'Attic clearing', 'General household junk'],
   },
   {
-    icon: '🏢',
+    img: '/images/team-loading.jpg',
     title: 'Commercial Cleanouts',
-    desc: "Minimize downtime. We work around your schedule to clear out offices, retail spaces, and warehouses efficiently.",
+    desc: 'Minimize downtime. We work around your schedule to clear out offices, retail spaces, and warehouses efficiently.',
     items: ['Office furniture & equipment', 'Retail fixture removal', 'Warehouse cleanouts', 'Storage unit clearing', 'Business downsizing'],
   },
   {
-    icon: '🛋️',
+    img: '/images/sofa-removal.jpg',
     title: 'Furniture & Appliance Removal',
-    desc: "No stairs too steep, no appliance too heavy. We carry it all out so you don't have to.",
+    desc: 'No stairs too steep, no appliance too heavy. We carry it all out so you don\'t have to.',
     items: ['Sofas, sectionals, recliners', 'Beds & bed frames', 'Refrigerators & freezers', 'Washing machines & dryers', 'Hot tubs & exercise equipment'],
   },
   {
-    icon: '🌿',
+    img: '/images/full-trailer.jpg',
     title: 'Yard Waste Removal',
     desc: 'After the storm or after the season — we clear branches, stumps, leaves, and all outdoor debris.',
     items: ['Storm debris & fallen branches', 'Leaf & brush removal', 'Stump & root hauling', 'Old fencing & lumber', 'Soil & mulch disposal'],
   },
   {
-    icon: '🏗️',
+    img: '/images/construction-debris.jpg',
     title: 'Construction Debris',
     desc: 'Remodeling? We handle the mess. All construction waste removed quickly and responsibly.',
     items: ['Drywall & lumber', 'Tile & flooring', 'Concrete & masonry', 'Roofing materials', 'Demolition debris'],
   },
   {
-    icon: '🏡',
+    img: '/images/before-after.jpg',
     title: 'Estate Cleanouts',
     desc: 'A compassionate, thorough approach to estate and hoarding cleanouts. We treat every job with discretion and respect.',
     items: ['Full estate clearing', 'Hoarding cleanouts', 'Senior moving assistance', 'Donation coordination', 'Property preparation for sale'],
@@ -59,8 +59,7 @@ const services = [
       {services.map((s, i) => (
         <div class={`service-row ${i % 2 !== 0 ? 'reverse' : ''}`}>
           <div class="service-visual">
-            <div class="service-icon-big">{s.icon}</div>
-            <div class="service-num">0{i + 1}</div>
+            <img src={s.img} alt={s.title} class="service-photo" />
           </div>
           <div class="service-detail">
             <h2 class="service-name">{s.title}</h2>
@@ -232,9 +231,9 @@ const services = [
 
   .service-row {
     display: grid;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 60px;
-    align-items: start;
+    align-items: center;
     padding: 56px 0;
     border-bottom: 1px solid var(--gray-mid);
   }
@@ -247,28 +246,19 @@ const services = [
   .service-row.reverse > * { direction: ltr; }
 
   .service-visual {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 32px 16px;
-    background: var(--gray-light);
+    overflow: hidden;
     position: relative;
-    min-height: 160px;
   }
 
-  .service-icon-big { font-size: 3.5rem; margin-bottom: 8px; }
-
-  .service-num {
-    position: absolute;
-    top: 10px; right: 14px;
-    font-family: var(--font-display);
-    font-size: 3rem;
-    color: var(--red);
-    opacity: 0.2;
-    line-height: 1;
+  .service-photo {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
   }
+
+  .service-visual:hover .service-photo { transform: scale(1.04); }
 
   .service-name {
     font-family: var(--font-display);
@@ -495,7 +485,7 @@ const services = [
   @media (max-width: 960px) {
     .carousel-slide { flex: 0 0 50%; }
     .service-row, .service-row.reverse { grid-template-columns: 1fr; direction: ltr; gap: 24px; }
-    .service-visual { flex-direction: row; min-height: auto; padding: 20px 24px; gap: 12px; }
+    .service-photo { aspect-ratio: 16/9; }
     .cta-inner { flex-direction: column; text-align: center; }
   }
 
