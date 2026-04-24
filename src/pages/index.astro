@@ -122,34 +122,47 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- ═══════════════ PHOTO SHOWCASE ═══════════════ -->
-  <section class="photo-showcase">
+  <!-- ═══════════════ SEE OUR WORK — VIDEOS ═══════════════ -->
+  <section class="work-videos">
     <div class="container">
       <div class="section-header center">
         <p class="section-label">Real Jobs</p>
         <h2 class="section-title">SEE OUR WORK</h2>
       </div>
-      <div class="photo-grid">
-        <div class="photo-item photo-tall">
-          <img src="/images/hero-bg.jpg" alt="J&N crew loading couch into trailer" />
-          <div class="photo-caption">Our Crew in Action</div>
+      <div class="video-grid">
+
+        <div class="video-card">
+          <div class="video-wrap">
+            <video src="/videos/video-crew-working.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            <div class="video-overlay">
+              <button class="play-toggle" aria-label="Play / Pause">
+                <svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                <svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="video-info">
+            <h3 class="video-title">Crew in Action</h3>
+            <span class="video-location">📍 Long Island, NY</span>
+          </div>
         </div>
-        <div class="photo-item">
-          <img src="/images/sofa-removal.jpg" alt="Worker removing old sofa from home" />
-          <div class="photo-caption">Furniture Removal</div>
+
+        <div class="video-card">
+          <div class="video-wrap">
+            <video src="/videos/video-before-after.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            <div class="video-overlay">
+              <button class="play-toggle" aria-label="Play / Pause">
+                <svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                <svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="video-info">
+            <h3 class="video-title">Garage Before &amp; After</h3>
+            <span class="video-location">📍 Long Island, NY</span>
+          </div>
         </div>
-        <div class="photo-item">
-          <img src="/images/full-trailer.jpg" alt="Full trailer load hauled away" />
-          <div class="photo-caption">Full Load Hauled Away</div>
-        </div>
-        <div class="photo-item">
-          <img src="/images/before-after.jpg" alt="Before and after garage cleanout" />
-          <div class="photo-caption">Before &amp; After</div>
-        </div>
-        <div class="photo-item">
-          <img src="/images/construction-debris.jpg" alt="Construction debris cleanup" />
-          <div class="photo-caption">Construction Debris</div>
-        </div>
+
       </div>
     </div>
   </section>
@@ -588,6 +601,79 @@ import Layout from '../layouts/Layout.astro';
   .cta-sub { color: rgba(255,255,255,0.8); font-size: 1rem; }
   .cta-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 
+  /* ── VIDEO SECTION ── */
+  .work-videos {
+    padding: 100px 0;
+    background: var(--gray-light);
+  }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-top: 48px;
+  }
+
+  .video-card {
+    background: var(--black);
+    overflow: hidden;
+  }
+
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--black-3);
+  }
+
+  .video-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .video-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 12px;
+    background: linear-gradient(transparent 60%, rgba(0,0,0,0.5));
+  }
+
+  .play-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--red);
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .play-toggle:hover { background: var(--red-dark); transform: scale(1.1); }
+
+  .video-info { padding: 14px 18px; background: var(--black); }
+
+  .video-title {
+    font-family: var(--font-condensed);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .video-location { font-size: 0.8rem; color: #666; }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 960px) {
     .hero-content { grid-template-columns: 1fr; gap: 40px; }
@@ -597,9 +683,7 @@ import Layout from '../layouts/Layout.astro';
     .steps-grid { grid-template-columns: 1fr; }
     .step-arrow { display: none; }
     .cta-inner { flex-direction: column; text-align: center; }
-    .photo-grid { height: auto; grid-template-columns: 1fr; grid-template-rows: auto; }
-    .photo-tall { grid-row: auto; }
-    .photo-item img { min-height: 260px; }
+    .video-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 600px) {
@@ -607,3 +691,23 @@ import Layout from '../layouts/Layout.astro';
     .services-grid { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  document.querySelectorAll('.play-toggle').forEach(btn => {
+    const video = btn.closest('.video-wrap')?.querySelector('video') as HTMLVideoElement;
+    const iconPause = btn.querySelector('.icon-pause') as HTMLElement;
+    const iconPlay = btn.querySelector('.icon-play') as HTMLElement;
+    if (!video) return;
+    btn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        iconPause.style.display = '';
+        iconPlay.style.display = 'none';
+      } else {
+        video.pause();
+        iconPause.style.display = 'none';
+        iconPlay.style.display = '';
+      }
+    });
+  });
+</script>
