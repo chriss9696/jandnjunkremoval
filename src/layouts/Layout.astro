@@ -18,15 +18,15 @@ const currentPath = Astro.url.pathname;
   <meta name="description" content={description} />
   <title>{title} | J&N Junk Removal – Long Island, NY</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <!-- Google Maps -->
-  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-placeholder"></script>
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="/" class="nav-brand">J<span>&</span>N <span style="color:var(--white); font-size:1rem; letter-spacing:1px; font-family:var(--font-condensed); font-weight:700;">JUNK REMOVAL</span></a>
+      <a href="/" class="nav-brand">
+        <img src="/images/logo.png" alt="J&N Junk Removal" class="nav-logo" />
+      </a>
       <ul class="nav-links">
         <li><a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a></li>
         <li><a href="/services" class={currentPath === '/services' ? 'active' : ''}>Services</a></li>
