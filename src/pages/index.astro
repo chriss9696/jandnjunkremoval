@@ -6,12 +6,15 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- ═══════════════ HERO ═══════════════ -->
   <section class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-bg-img">
+      <img src="/images/hero-bg.jpg" alt="J&N Junk Removal crew loading couch into trailer" />
+      <div class="hero-overlay"></div>
+    </div>
     <div class="container hero-content">
       <div class="hero-text">
         <p class="section-label">Long Island's #1 Junk Removal</p>
         <h1 class="hero-title">WE HAUL<br /><span>IT ALL.</span></h1>
-        <p class="hero-subtitle">Fast, affordable junk removal across Nassau & Suffolk County. Same-day service available — call or schedule online.</p>
+        <p class="hero-subtitle">Fast, affordable junk removal across Nassau &amp; Suffolk County. Same-day service available — call or schedule online.</p>
         <div class="hero-actions">
           <a href="tel:5166725222" class="btn btn-primary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 8.32 8.32l1.12-.96a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -22,17 +25,11 @@ import Layout from '../layouts/Layout.astro';
         <div class="hero-badges">
           <div class="badge">✓ Same-Day Available</div>
           <div class="badge">✓ Free Estimates</div>
-          <div class="badge">✓ Licensed & Insured</div>
+          <div class="badge">✓ No Hidden Fees</div>
         </div>
       </div>
       <div class="hero-logo-wrap">
-        <div class="hero-logo-box">
-          <img src="/images/logo.png" alt="J&N Junk Removal Logo" class="hero-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="hero-logo-fallback">
-            <span class="logo-fallback-text">J<span>&</span>N</span>
-            <span class="logo-fallback-sub">JUNK REMOVAL</span>
-          </div>
-        </div>
+        <img src="/images/logo.png" alt="J&N Junk Removal" class="hero-logo-img" />
       </div>
     </div>
     <div class="hero-scroll">
@@ -41,40 +38,19 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- ═══════════════ STATS STRIP ═══════════════ -->
-  <section class="stats-strip">
-    <div class="container stats-grid">
-      <div class="stat">
-        <span class="stat-num">500<span class="stat-plus">+</span></span>
-        <span class="stat-label">Jobs Completed</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">5<span class="stat-plus">★</span></span>
-        <span class="stat-label">Average Rating</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">Same<span class="stat-plus">-Day</span></span>
-        <span class="stat-label">Service Available</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">100<span class="stat-plus">%</span></span>
-        <span class="stat-label">Satisfaction Guarantee</span>
-      </div>
-    </div>
-  </section>
-
   <!-- ═══════════════ ABOUT ═══════════════ -->
   <section class="about">
     <div class="container about-inner">
       <div class="about-visual">
         <div class="about-img-block">
-          <div class="about-img-placeholder">
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            <p>Add your team/truck photo here</p>
-          </div>
+          <img
+            src="/images/team-loading.jpg"
+            alt="J&N Junk Removal crew loading couch into trailer"
+            class="about-img"
+          />
           <div class="about-accent-box">
-            <span class="accent-year">Local</span>
-            <span class="accent-text">Long Island Team</span>
+            <span class="accent-top">Local</span>
+            <span class="accent-bottom">Long Island Team</span>
           </div>
         </div>
       </div>
@@ -121,23 +97,59 @@ import Layout from '../layouts/Layout.astro';
       </div>
       <div class="services-grid">
         {[
-          { icon: '🏠', title: 'Residential Cleanouts', desc: 'Full home and apartment cleanouts. We haul everything from furniture to appliances.' },
-          { icon: '🏢', title: 'Commercial Cleanouts', desc: 'Office, retail, and warehouse cleanouts. Minimal disruption to your business.' },
-          { icon: '🛋️', title: 'Furniture & Appliances', desc: 'Old sofas, fridges, mattresses — we take it all off your hands.' },
-          { icon: '🌿', title: 'Yard Waste Removal', desc: 'Branches, leaves, stumps, and debris cleared fast.' },
-          { icon: '🏗️', title: 'Construction Debris', desc: 'Demo waste, drywall, wood, tile — cleared from any job site.' },
-          { icon: '🏡', title: 'Estate Cleanouts', desc: 'Compassionate, thorough estate and hoarding cleanouts.' },
+          { img: '/images/hero-bg.jpg',             title: 'Residential Cleanouts',     desc: 'Full home and apartment cleanouts. We haul everything from furniture to appliances, fast and affordably.' },
+          { img: '/images/sofa-removal.jpg',         title: 'Furniture & Appliances',    desc: 'Old sofas, fridges, mattresses — we take it all off your hands. No item too heavy.' },
+          { img: '/images/construction-debris.jpg',  title: 'Construction Debris',       desc: 'Demo waste, drywall, wood, tile — cleared from any job site quickly and responsibly.' },
+          { img: '/images/full-trailer.jpg',         title: 'Full Junk Hauling',         desc: 'No load too big. We fill the trailer and haul it all away — you just show us what goes.' },
+          { img: '/images/before-after.jpg',         title: 'Garage & Estate Cleanouts', desc: 'Thorough garage, basement, and estate cleanouts. We leave your space completely clear.' },
+          { img: '/images/team-loading.jpg',         title: 'Commercial Cleanouts',      desc: 'Office, retail, and warehouse cleanouts scheduled around your business hours.' },
         ].map(s => (
           <div class="service-card">
-            <div class="service-icon">{s.icon}</div>
-            <h3 class="service-title">{s.title}</h3>
-            <p class="service-desc">{s.desc}</p>
-            <a href="/services" class="service-link">Learn more →</a>
+            <div class="service-card-img">
+              <img src={s.img} alt={s.title} />
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-title">{s.title}</h3>
+              <p class="service-desc">{s.desc}</p>
+              <a href="/services" class="service-link">Learn more →</a>
+            </div>
           </div>
         ))}
       </div>
       <div style="text-align:center; margin-top:48px;">
         <a href="/services" class="btn btn-primary">View All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PHOTO SHOWCASE ═══════════════ -->
+  <section class="photo-showcase">
+    <div class="container">
+      <div class="section-header center">
+        <p class="section-label">Real Jobs</p>
+        <h2 class="section-title">SEE OUR WORK</h2>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-item photo-tall">
+          <img src="/images/hero-bg.jpg" alt="J&N crew loading couch into trailer" />
+          <div class="photo-caption">Our Crew in Action</div>
+        </div>
+        <div class="photo-item">
+          <img src="/images/sofa-removal.jpg" alt="Worker removing old sofa from home" />
+          <div class="photo-caption">Furniture Removal</div>
+        </div>
+        <div class="photo-item">
+          <img src="/images/full-trailer.jpg" alt="Full trailer load hauled away" />
+          <div class="photo-caption">Full Load Hauled Away</div>
+        </div>
+        <div class="photo-item">
+          <img src="/images/before-after.jpg" alt="Before and after garage cleanout" />
+          <div class="photo-caption">Before &amp; After</div>
+        </div>
+        <div class="photo-item">
+          <img src="/images/construction-debris.jpg" alt="Construction debris cleanup" />
+          <div class="photo-caption">Construction Debris</div>
+        </div>
       </div>
     </div>
   </section>
@@ -188,39 +200,49 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-  /* HERO */
+  /* ── HERO ── */
   .hero {
     position: relative;
     min-height: calc(100vh - 70px);
-    background: var(--black);
     display: flex;
     align-items: center;
     overflow: hidden;
   }
 
-  .hero-bg {
+  .hero-bg-img {
     position: absolute;
     inset: 0;
-    background: 
-      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(211,47,47,0.12) 0%, transparent 70%),
-      repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 40px,
-        rgba(255,255,255,0.015) 40px,
-        rgba(255,255,255,0.015) 41px
-      );
+    z-index: 0;
+  }
+
+  .hero-bg-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      110deg,
+      rgba(0,0,0,0.93) 0%,
+      rgba(0,0,0,0.82) 45%,
+      rgba(0,0,0,0.50) 100%
+    );
   }
 
   .hero-content {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
     padding-top: 60px;
     padding-bottom: 80px;
-    position: relative;
-    z-index: 1;
   }
 
   .hero-title {
@@ -235,7 +257,7 @@ import Layout from '../layouts/Layout.astro';
 
   .hero-subtitle {
     font-size: 1.1rem;
-    color: #aaa;
+    color: rgba(255,255,255,0.75);
     line-height: 1.7;
     max-width: 440px;
     margin-bottom: 32px;
@@ -248,16 +270,12 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 28px;
   }
 
-  .hero-badges {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
+  .hero-badges { display: flex; gap: 12px; flex-wrap: wrap; }
 
   .badge {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.15);
-    color: #ccc;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.85);
     font-size: 0.8rem;
     font-family: var(--font-condensed);
     font-weight: 600;
@@ -271,123 +289,37 @@ import Layout from '../layouts/Layout.astro';
     align-items: center;
   }
 
-  .hero-logo-box {
-    width: 360px;
-    height: 360px;
-    border: 2px solid rgba(211,47,47,0.3);
-    background: rgba(211,47,47,0.05);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-
-  .hero-logo-box::before {
-    content: '';
-    position: absolute;
-    inset: -8px;
-    border: 1px solid rgba(211,47,47,0.15);
-  }
-
-  .hero-logo { width: 100%; height: 100%; object-fit: contain; padding: 30px; }
-
-  .hero-logo-fallback {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .logo-fallback-text {
-    font-family: var(--font-display);
-    font-size: 5rem;
-    color: var(--white);
-    line-height: 1;
-  }
-  .logo-fallback-text span { color: var(--red); }
-
-  .logo-fallback-sub {
-    font-family: var(--font-condensed);
-    font-weight: 900;
-    font-size: 1.2rem;
-    color: var(--red);
-    letter-spacing: 4px;
-    margin-top: 8px;
+  .hero-logo-img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    filter: drop-shadow(0 4px 32px rgba(211,47,47,0.35));
   }
 
   .hero-scroll {
     position: absolute;
-    bottom: 32px;
+    bottom: 28px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    color: #555;
-    font-size: 0.7rem;
+    color: rgba(255,255,255,0.3);
     font-family: var(--font-condensed);
+    font-size: 0.7rem;
     letter-spacing: 3px;
     text-transform: uppercase;
+    z-index: 1;
   }
 
   .scroll-line {
     width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, var(--red), transparent);
-    animation: scrollPulse 1.5s infinite;
+    height: 36px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
   }
 
-  @keyframes scrollPulse {
-    0%, 100% { opacity: 0.4; transform: scaleY(1); }
-    50% { opacity: 1; transform: scaleY(1.1); }
-  }
-
-  /* STATS */
-  .stats-strip {
-    background: var(--red);
-    padding: 32px 0;
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-  }
-
-  .stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 16px;
-    border-right: 1px solid rgba(255,255,255,0.2);
-  }
-  .stat:last-child { border-right: none; }
-
-  .stat-num {
-    font-family: var(--font-display);
-    font-size: 2.6rem;
-    color: var(--white);
-    line-height: 1;
-  }
-
-  .stat-plus {
-    font-size: 1.6rem;
-    color: rgba(255,255,255,0.7);
-  }
-
-  .stat-label {
-    font-family: var(--font-condensed);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.8);
-    margin-top: 4px;
-  }
-
-  /* ABOUT */
+  /* ── ABOUT ── */
   .about {
     padding: 100px 0;
     background: var(--white);
@@ -402,52 +334,45 @@ import Layout from '../layouts/Layout.astro';
 
   .about-img-block {
     position: relative;
+    padding-bottom: 28px;
+    padding-right: 28px;
   }
 
-  .about-img-placeholder {
+  .about-img {
     width: 100%;
     aspect-ratio: 4/3;
-    background: var(--gray-light);
-    border: 2px dashed var(--gray-mid);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    color: var(--gray-text);
-    font-size: 0.9rem;
-    text-align: center;
-    padding: 20px;
+    object-fit: cover;
+    display: block;
   }
-
-  .about-img-placeholder svg { opacity: 0.3; }
 
   .about-accent-box {
     position: absolute;
-    bottom: -24px;
-    right: -24px;
+    bottom: 0;
+    right: 0;
     background: var(--red);
     color: var(--white);
-    padding: 20px 28px;
+    padding: 18px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
-  .accent-year {
+  .accent-top {
     font-family: var(--font-display);
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     line-height: 1;
   }
 
-  .accent-text {
+  .accent-bottom {
     font-family: var(--font-condensed);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
     opacity: 0.9;
     margin-top: 4px;
+    white-space: nowrap;
   }
 
   .about-divider {
@@ -466,17 +391,9 @@ import Layout from '../layouts/Layout.astro';
     gap: 18px;
   }
 
-  .feature-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
+  .feature-item { display: flex; gap: 16px; align-items: flex-start; }
 
-  .feature-icon {
-    font-size: 1.6rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
+  .feature-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
 
   .feature-item strong {
     display: block;
@@ -491,34 +408,30 @@ import Layout from '../layouts/Layout.astro';
 
   .feature-item p { font-size: 0.9rem; color: var(--gray-text); }
 
-  /* SERVICES PREVIEW */
+  /* ── SERVICES PREVIEW ── */
   .services-preview {
     background: var(--black);
     padding: 100px 0;
   }
 
-  .section-header {
-    margin-bottom: 56px;
-  }
-
+  .section-header { margin-bottom: 48px; }
   .section-header.center { text-align: center; }
 
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+    gap: 3px;
     background: var(--black-3);
   }
 
   .service-card {
     background: var(--black-2);
-    padding: 36px 28px;
-    transition: background 0.2s, transform 0.2s;
-    position: relative;
     overflow: hidden;
+    transition: transform 0.25s;
+    position: relative;
   }
 
-  .service-card::before {
+  .service-card::after {
     content: '';
     position: absolute;
     bottom: 0; left: 0; right: 0;
@@ -528,27 +441,33 @@ import Layout from '../layouts/Layout.astro';
     transition: transform 0.3s;
   }
 
-  .service-card:hover { background: var(--black-3); transform: translateY(-4px); }
-  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover { transform: translateY(-5px); }
+  .service-card:hover::after { transform: scaleX(1); }
 
-  .service-icon { font-size: 2.2rem; margin-bottom: 14px; }
+  .service-card-img { width: 100%; height: 190px; overflow: hidden; }
+
+  .service-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+  }
+
+  .service-card:hover .service-card-img img { transform: scale(1.07); }
+
+  .service-card-body { padding: 24px 22px 28px; }
 
   .service-title {
     font-family: var(--font-condensed);
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--white);
     margin-bottom: 10px;
   }
 
-  .service-desc {
-    font-size: 0.9rem;
-    color: #888;
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
+  .service-desc { font-size: 0.9rem; color: #888; line-height: 1.7; margin-bottom: 16px; }
 
   .service-link {
     font-family: var(--font-condensed);
@@ -557,15 +476,57 @@ import Layout from '../layouts/Layout.astro';
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--red);
-    transition: gap 0.2s;
+    transition: color 0.2s;
   }
 
   .service-link:hover { color: var(--red-light); }
 
-  /* HOW IT WORKS */
-  .how-it-works {
+  /* ── PHOTO SHOWCASE ── */
+  .photo-showcase {
     padding: 100px 0;
     background: var(--gray-light);
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+    margin-top: 48px;
+    height: 560px;
+  }
+
+  .photo-tall { grid-row: 1 / 3; }
+
+  .photo-item { position: relative; overflow: hidden; }
+
+  .photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .photo-item:hover img { transform: scale(1.05); }
+
+  .photo-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.78));
+    color: var(--white);
+    font-family: var(--font-condensed);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 28px 16px 14px;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how-it-works {
+    padding: 100px 0;
+    background: var(--white);
   }
 
   .steps-grid {
@@ -577,10 +538,9 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .step {
-    background: var(--white);
+    background: var(--gray-light);
     padding: 36px 28px;
     border-top: 4px solid var(--red);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
   }
 
   .step-num {
@@ -589,7 +549,7 @@ import Layout from '../layouts/Layout.astro';
     color: var(--red);
     line-height: 1;
     margin-bottom: 12px;
-    opacity: 0.7;
+    opacity: 0.65;
   }
 
   .step h3 {
@@ -604,19 +564,10 @@ import Layout from '../layouts/Layout.astro';
 
   .step p { font-size: 0.9rem; color: var(--gray-text); line-height: 1.7; }
   .step p a { color: var(--red); font-weight: 700; }
+  .step-arrow { font-size: 2rem; color: var(--red); align-self: center; }
 
-  .step-arrow {
-    font-size: 2rem;
-    color: var(--red);
-    align-self: center;
-    font-weight: 900;
-  }
-
-  /* CTA */
-  .cta-banner {
-    background: var(--red);
-    padding: 72px 0;
-  }
+  /* ── CTA BANNER ── */
+  .cta-banner { background: var(--red); padding: 72px 0; }
 
   .cta-inner {
     display: flex;
@@ -634,29 +585,25 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 8px;
   }
 
-  .cta-sub {
-    color: rgba(255,255,255,0.8);
-    font-size: 1rem;
-  }
-
+  .cta-sub { color: rgba(255,255,255,0.8); font-size: 1rem; }
   .cta-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 
-  /* RESPONSIVE */
+  /* ── RESPONSIVE ── */
   @media (max-width: 960px) {
     .hero-content { grid-template-columns: 1fr; gap: 40px; }
     .hero-logo-wrap { display: none; }
     .about-inner { grid-template-columns: 1fr; }
-    .about-img-block { display: none; }
     .services-grid { grid-template-columns: 1fr 1fr; }
     .steps-grid { grid-template-columns: 1fr; }
     .step-arrow { display: none; }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .cta-inner { flex-direction: column; text-align: center; }
+    .photo-grid { height: auto; grid-template-columns: 1fr; grid-template-rows: auto; }
+    .photo-tall { grid-row: auto; }
+    .photo-item img { min-height: 260px; }
   }
 
   @media (max-width: 600px) {
-    .hero { min-height: auto; padding: 48px 0 60px; }
+    .hero { min-height: auto; padding: 48px 0 72px; }
     .services-grid { grid-template-columns: 1fr; }
-    .stats-grid { grid-template-columns: 1fr 1fr; }
   }
 </style>
