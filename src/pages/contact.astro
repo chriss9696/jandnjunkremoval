@@ -391,13 +391,13 @@ import Layout from '../layouts/Layout.astro';
   .cal-month-label { font-family: var(--font-condensed); font-size: 0.9rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--black); }
   .cal-days-hdr { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; margin-bottom: 4px; }
   .cal-days-hdr span { font-family: var(--font-condensed); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--gray-text); text-align: center; padding: 4px 0; letter-spacing: 0.5px; }
-  .cal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; }
-  .cal-day { font-family: var(--font-condensed); font-size: 0.85rem; text-align: center; padding: 8px 4px; cursor: pointer; color: var(--black); transition: all 0.1s; border: 1px solid transparent; }
-  .cal-day.empty { visibility: hidden; }
-  .cal-day:hover:not(.disabled):not(.empty) { background: rgba(226,75,74,0.08); border-color: var(--red); color: var(--red); }
-  .cal-day.disabled { color: var(--gray-mid); cursor: not-allowed; }
-  .cal-day.today { font-weight: 700; color: var(--red); }
-  .cal-day.selected { background: var(--red); color: var(--white); border-color: var(--red); }
+  :global(.cal-grid) { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; }
+  :global(.cal-day) { font-family: var(--font-condensed); font-size: 0.85rem; text-align: center; padding: 8px 4px; cursor: pointer; color: var(--black); transition: all 0.1s; border: 1px solid transparent; }
+  :global(.cal-day.empty) { visibility: hidden; }
+  :global(.cal-day:hover:not(.disabled):not(.empty)) { background: rgba(226,75,74,0.08); border-color: var(--red); color: var(--red); }
+  :global(.cal-day.disabled) { color: var(--gray-mid); cursor: not-allowed; }
+  :global(.cal-day.today) { font-weight: 700; color: var(--red); }
+  :global(.cal-day.selected) { background: var(--red); color: var(--white); border-color: var(--red); }
 
   .time-slots { margin-top: 14px; }
   .time-slots.hidden { display: none; }
