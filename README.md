@@ -2,7 +2,7 @@
 
 **Domain:** jandnjunkremoval.com  
 **Phone:** (516) 672-5222  
-**Email:** jnjunkremovalservices@gmail.com
+**Email:** contact@nassaujunk.com
 
 Built with [Astro](https://astro.build) — fast, SEO-friendly static site.
 
